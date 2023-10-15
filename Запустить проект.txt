@@ -2,7 +2,8 @@
 2) docker-compose build
 3) docker-compose up -d
 4) На localhost:80 будет само приложение
-5) docker-compose exec php-fpm php artisan migrate
-6) заполнение таблиц - docker-compose exec php-fpm php artisan db:seed
+5) docker-compose exec php-fpm composer install
+6) docker-compose exec php-fpm php artisan migrate
+7) заполнение таблиц - docker-compose exec php-fpm php artisan db:seed
 В api.php - 4 маршрута, CRUD.
 На / заявки с пагинацией
