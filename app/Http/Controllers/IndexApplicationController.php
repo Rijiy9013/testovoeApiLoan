@@ -22,7 +22,7 @@ class IndexApplicationController extends BaseApplicationController
 
     public function main()
     {
-        $applications = Application::paginate(10); // 10 заявок на страницу
+        $applications = Application::paginate(10);
         return view('welcome', compact('applications'));
     }
 

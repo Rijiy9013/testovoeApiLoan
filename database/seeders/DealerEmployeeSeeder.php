@@ -15,7 +15,7 @@ class DealerEmployeeSeeder extends Seeder
         $dealers = \App\Models\Dealer::all();
 
         $dealers->each(function ($dealer) {
-            \App\Models\DealerEmployee::class::factory(3)->create(['dealer_id' => $dealer->id]);
+            \App\Models\DealerEmployee::class::factory(3)->create(['dealer_id' => $dealer->id]); // по 3 сотрудника каждому дилеру
         });
     }
 }

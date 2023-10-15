@@ -29,7 +29,7 @@ class ApplicationFactory extends Factory
             'loan_amount' => fake()->randomFloat(2, 1000, 5000000),
             'loan_term' => fake()->numberBetween(1, 6),
             'interest_rate' => fake()->randomFloat(2, 1, 13),
-            'reason_description' => fake()->text(30), // Текст меньше 3 предложений
+            'reason_description' => fake()->text(30),
             'application_status_id' => $applicationStatusId,
         ];
     }
