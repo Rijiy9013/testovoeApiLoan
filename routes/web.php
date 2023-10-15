@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [IndexApplicationController::class, 'check'])->name('check');
+Route::get('/check', [IndexApplicationController::class, 'check'])->name('check');
+Route::get('/', [IndexApplicationController::class, 'main'])->name('main');

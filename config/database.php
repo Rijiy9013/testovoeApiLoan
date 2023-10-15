@@ -65,7 +65,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => 'api_banks-postgresql-1',
+            'host' => 'testovoeapiloan-postgresql-1',
             'port' => 5432,
             'database' => env('DB_DATABASE', 'your_database_name'),
             'username' => env('DB_USERNAME', 'your_database_user'),
