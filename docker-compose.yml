@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - php-fpm
+    networks:
+      - mynetwork
+
+  nginx:
+    image: nginx:latest
+    ports:
+        - "80:80"
+    volumes:
+        - ./nginx.conf:/etc/nginx/conf.d/nginx.conf:ro
+    depends_on:
+      - php-fpm
+    networks:
+      - mynetwork
+
+  php-fpm:
+    build:
+      context: .
+    volumes:
+      - .:/var/www/html/public
+    depends_on:
+      - postgresql
+    networks:
+      - mynetwork
+
+  postgresql:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: tz_api_banks
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
