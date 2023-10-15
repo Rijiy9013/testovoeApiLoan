@@ -15,9 +15,9 @@ services:
   nginx:
     image: nginx:latest
     ports:
-        - "80:80"
+      - "80:80"
     volumes:
-        - ./nginx.conf:/etc/nginx/conf.d/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - php-fpm
     networks:
