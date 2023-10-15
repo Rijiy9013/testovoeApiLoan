@@ -17,7 +17,7 @@ services:
     ports:
         - "80:80"
     volumes:
-        - ./nginx.conf:/etc/nginx/conf.d/nginx.conf:ro
+        - ./nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - php-fpm
     networks:
@@ -26,8 +26,9 @@ services:
   php-fpm:
     build:
       context: .
+      dockerfile: Dockerfile
     volumes:
-      - .:/var/www/html/public
+      - .:/var/www/public
     depends_on:
       - postgresql
     networks:
