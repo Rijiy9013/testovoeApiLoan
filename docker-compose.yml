@@ -17,6 +17,7 @@ services:
     ports:
       - "80:80"
     volumes:
+      - ./:/var/www
       - ./nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - php-fpm
@@ -27,7 +28,7 @@ services:
     build:
       context: .
     volumes:
-      - .:/var/www/html/public
+      - .:/var/www
     depends_on:
       - postgresql
     networks:
